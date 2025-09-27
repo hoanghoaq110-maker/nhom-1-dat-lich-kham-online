@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Ký - Bệnh Viện ABC</title>
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="image/logo_benhvien.png" alt="Logo Bệnh Viện">
+      <span><strong>Bệnh Viện ABC</strong><br>Nhóm 1</span>
+    </div>
+
+    <ul class="menu">
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li><a href="#">Bác Sĩ</a></li>
+      <li><a href="#">Chuyên Khoa</a></li>
+      <li><a href="#">Đặt Lịch Khám</a></li>
+      <li><a href="#">Tư Vấn Online</a></li>
+    </ul>
+
+    <ul class="others">
+      <li><a href="register.html" class="btn_register">Đăng Ký</a></li>
+      <li><a href="login.html" class="btn_login">Đăng Nhập</a></li>
+    </ul>
+  </header>
+
+  <!-- FORM ĐĂNG KÝ -->
+  <section class="auth-section">
+    <h2>Đăng Ký Tài Khoản</h2>
+    <form class="auth-form">
+      <label>Họ và tên</label>
+      <input type="text" placeholder="Nhập họ và tên" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Nhập email" required>
+
+      <label>Mật khẩu</label>
+      <input type="password" placeholder="Nhập mật khẩu" required>
+
+      <label>Xác nhận mật khẩu</label>
+      <input type="password" placeholder="Nhập lại mật khẩu" required>
+
+      <button type="submit" class="btn_submit">Đăng Ký</button>
+      <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Cột 1: Giới thiệu -->
+      <div class="footer-column">
+        <div class="logo">
+          <img src="image/logo_benhvien.png" alt="Logo Bệnh Viện">
+          <span><strong>Bệnh Viện ABC</strong><br>Nhóm 1</span>
+        </div>
+        <p>
+          Bệnh viện ABC – Địa chỉ chăm sóc sức khỏe uy tín với đội ngũ chuyên gia
+          đầu ngành, dịch vụ khám chữa bệnh chất lượng cao và hệ thống đặt lịch
+          online tiện lợi.
+        </p>
+        <div class="social-icons">
+          <span>Liên Kết Với Chúng Tôi</span><br />
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Cột 2: Liên hệ -->
+      <div class="footer-column">
+        <h3>LIÊN HỆ BỆNH VIỆN</h3>
+        <p><strong>Bệnh viện ABC</strong></p>
+        <p>Cơ sở 1: 123 Đường XYZ, Quận 1, TP.HCM</p>
+        <p>Điện thoại: 0236 154 678</p>
+        <p>Cơ sở 2: 456 Nguyễn Văn Linh, Thanh Khê, Đà Nẵng</p>
+        <p>Điện thoại: 0236 333 444</p>
+        <p>Email: contact@bvabc.vn</p>
+      </div>
+
+      <!-- Cột 3: Hỗ trợ -->
+      <div class="footer-column">
+        <h3>Hỗ Trợ</h3>
+        <ul>
+          <li><a href="#">Câu Hỏi Thường Gặp</a></li>
+          <li><a href="#">Chính Sách Bảo Mật</a></li>
+          <li><a href="#">Giải Quyết Khiếu Nại</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Gạch ngang -->
+    <hr class="footer-line" />
+  </footer>
+  <script>
+    const registerForm = document.querySelector(".auth-form");
+
+    registerForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = registerForm.querySelector("input[type='text']").value;
+      const email = registerForm.querySelector("input[type='email']").value;
+      const password = registerForm.querySelectorAll("input[type='password']")[0].value;
+      const confirmPassword = registerForm.querySelectorAll("input[type='password']")[1].value;
+
+      if (password !== confirmPassword) {
+        alert("Mật khẩu xác nhận không khớp!");
+        return;
+      }
+
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Kiểm tra email trùng
+      if (users.some(u => u.email === email)) {
+        alert("Email đã tồn tại!");
+        return;
+      }
+
+      users.push({ name, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Đăng ký thành công!");
+      window.location.href = "login.html";
+    });
+  </script>
+
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
