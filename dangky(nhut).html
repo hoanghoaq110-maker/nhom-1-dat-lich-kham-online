@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký tài khoản</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 420px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #34495e;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .success {
+      margin-top: 15px;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Đăng Ký Tài Khoản</h2>
+    <form id="registerForm">
+      <label for="fullname">Họ và tên</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="phone">Số điện thoại</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}" placeholder="0901234567" required>
+
+      <label for="password">Mật khẩu</label>
+      <input type="password" id="password" name="password" minlength="6" required>
+
+      <label for="confirm">Xác nhận mật khẩu</label>
+      <input type="password" id="confirm" name="confirm" minlength="6" required>
+
+      <button type="submit">Đăng ký</button>
+    </form>
+    <div class="success" id="successMsg"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fullname = form.fullname.value.trim();
+      const email    = form.email.value.trim();
+      const phone    = form.phone.value.trim();
+      const password = form.password.value;
+      const confirm  = form.confirm.value;
+
+      // Kiểm tra xác nhận mật khẩu
+      if (password !== confirm) {
+        alert("Mật khẩu xác nhận không khớp!");
+        return;
+      }
+
+      // Nếu tất cả hợp lệ
+      successMsg.textContent =
+        `Đăng ký thành công cho ${fullname} với email ${email}!`;
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
