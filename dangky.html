@@ -1,100 +1,120 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký tài khoản DZCinema</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký tài khoản</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 420px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #34495e;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .success {
+      margin-top: 15px;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="d-flex align-items-center justify-content-center my-5 my-lg-0"
-        style="background-position: center; height: 100vh;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="my-4 text-center"></div>
-                    <div class="card d-flex">
-                        <div class="card-body flex-full">
-                            <div class="border p-4 rounded">
-                                <div class="text-center">
-                                    <h3 class="text-uppercase">Đăng ký tài khoản 
-                                    </h3>
-                                    <p>Bạn đã có tài khoản?
-                                        <a href="/client/dang-nhap">Đăng nhập tại đây</a>
-                                    </p>
-                                </div>
-                                <div class="form-body">
-                                    <form>
-                                        <div class="row g-3">
-                                            <div class="col-sm-6">
-                                                <label class="form-label">Họ và tên</label>
-                                                <input type="text" class="form-control" name="ho_va_ten">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label for="inputEmailAddress" class="form-label">Email</label>
-                                                <input type="email" class="form-control" name="email">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="form-label">Số điện thoại</label>
-                                                <input type="text" class="form-control" name="so_dien_thoai">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="form-label">Số CCCD</label>
-                                                <input type="text" class="form-control" name="cccd">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="form-label">Ngày Sinh</label>
-                                                <input type="date" class="form-control" name="ngay_sinh" min="1900-01-01" max="2025-12-31">
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="form-label">Mật khẩu</label>
-                                                <div class="input-group" id="show_hide_password">
-                                                    <input type="password" class="form-control border-end-0" name="password">
-                                                    <a href="javascript:;" class="input-group-text bg-transparent">
-                                                        <i class="bx bx-hide"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="form-label">Nhập Lại Mật khẩu</label>
-                                                <div class="input-group" id="show_hide_password_repeat">
-                                                    <input type="password" class="form-control border-end-0" name="re_password">
-                                                    <a href="javascript:;" class="input-group-text bg-transparent">
-                                                        <i class="bx bx-hide"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        id="flexSwitchCheckChecked">
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">
-                                                        Bằng việc đăng ký tài khoản, tôi đồng ý với Điều khoản dịch vụ &amp;
-                                                        Chính sách bảo mật của .
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="d-grid">
-                                                    <button type="submit" class="btn btn-success text-uppercase">
-                                                        <i class="bx bx-user"></i> Đăng Ký
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  <div class="container">
+    <h2>Đăng Ký Tài Khoản</h2>
+    <form id="registerForm">
+      <label for="fullname">Họ và tên</label>
+      <input type="text" id="fullname" name="fullname" required>
 
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="phone">Số điện thoại</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}" placeholder="0901234567" required>
+
+      <label for="password">Mật khẩu</label>
+      <input type="password" id="password" name="password" minlength="6" required>
+
+      <label for="confirm">Xác nhận mật khẩu</label>
+      <input type="password" id="confirm" name="confirm" minlength="6" required>
+
+      <button type="submit">Đăng ký</button>
+    </form>
+    <div class="success" id="successMsg"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fullname = form.fullname.value.trim();
+      const email    = form.email.value.trim();
+      const phone    = form.phone.value.trim();
+      const password = form.password.value;
+      const confirm  = form.confirm.value;
+
+      // Kiểm tra xác nhận mật khẩu
+      if (password !== confirm) {
+        alert("Mật khẩu xác nhận không khớp!");
+        return;
+      }
+
+      // Nếu tất cả hợp lệ
+      successMsg.textContent =
+        `Đăng ký thành công cho ${fullname} với email ${email}!`;
+
+      form.reset();
+    });
+  </script>
+</body>
 </html>
